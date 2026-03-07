@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #02050f;
+  color: #f3f7ff;
+}
+
+.noise-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.noise-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.055) 0.4px, transparent 0.4px);
+  background-size: 3px 3px;
+  opacity: 0.09;
+}
+
+.noise-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 85%, rgba(150, 58, 255, 0.24) 0%, rgba(24, 20, 45, 0.14) 26%, rgba(2, 5, 15, 0) 58%),
+    radial-gradient(circle at 50% -10%, rgba(255, 255, 255, 0.06) 0%, rgba(2, 5, 15, 0) 45%);
+}
+
+.hero-loop {
+  background: conic-gradient(from 130deg at 50% 50%, #4294ff 0deg, #9f4fff 130deg, #ff5dde 210deg, #4294ff 360deg);
+  filter: drop-shadow(0 0 28px rgba(98, 111, 255, 0.5));
+}
