@@ -21,7 +21,4 @@ npm run build
 npm run start
 ```
 
-## Деплой
 
-- Vercel: импортировать репозиторий и нажать Deploy
-- GitHub Pages: рекомендуется через `next export` и static hosting workflow (опционально)
