@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Sora, Space_Grotesk } from "next/font/google";
+import { siteConfig } from "./config/site";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -13,16 +14,34 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
-  title: "NovaChain AI - Scalable Infrastructure",
-  description:
-    "NovaChain AI combines blockchain speed with AI-driven security for modern fintech platforms.",
+  metadataBase: new URL(siteConfig.url),
+  title: siteConfig.title,
+  description: siteConfig.description,
+  keywords: [...siteConfig.keywords],
+  robots: {
+    index: true,
+    follow: true
+  },
   openGraph: {
-    title: "NovaChain AI - Scalable Infrastructure",
-    description:
-      "Landing page inspired by Serendale style: high-performance blockchain and AI security.",
+    title: siteConfig.title,
+    description: siteConfig.ogDescription,
     type: "website",
-    url: "https://example.com",
-    siteName: "NovaChain AI"
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1500,
+        height: 682,
+        alt: siteConfig.ogImageAlt
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.title,
+    description: siteConfig.ogDescription,
+    images: [siteConfig.ogImage]
   }
 };
 
@@ -32,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru">
+    <html lang="en">
       <body className={`${spaceGrotesk.variable} ${sora.variable} bg-bg font-[var(--font-space-grotesk)] antialiased`}>
         {children}
       </body>
